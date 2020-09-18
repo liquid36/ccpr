@@ -1,0 +1,13 @@
+{
+    "id": "5f29f956108c22f91f5f7931",
+    "name": "webhooks-events",
+    "run_as_authed_user": false,
+    "run_as_user_id": "",
+    "run_as_user_id_script_source": "",
+    "options": {
+        "secret": "@Andes2020"
+    },
+    "respond_result": true,
+    "fetch_custom_user_data": false,
+    "create_user_on_auth": false
+}

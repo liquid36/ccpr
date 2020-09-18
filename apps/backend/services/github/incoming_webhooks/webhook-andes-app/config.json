@@ -1,0 +1,14 @@
+{
+    "id": "5f2a1026b99615217931d355",
+    "name": "webhook-andes-app",
+    "run_as_authed_user": false,
+    "run_as_user_id": "",
+    "run_as_user_id_script_source": "",
+    "options": {
+        "secret": "@Andes2020"
+    },
+    "respond_result": true,
+    "disable_arg_logs": true,
+    "fetch_custom_user_data": false,
+    "create_user_on_auth": false
+}

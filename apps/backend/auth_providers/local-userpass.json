@@ -1,0 +1,13 @@
+{
+    "id": "5f5a7b48d0b0bc289c60dfe9",
+    "name": "local-userpass",
+    "type": "local-userpass",
+    "config": {
+        "autoConfirm": true,
+        "resetPasswordSubject": "HOLA",
+        "resetPasswordUrl": "http://localhost.com",
+        "runConfirmationFunction": false,
+        "runResetFunction": ""
+    },
+    "disabled": false
+}

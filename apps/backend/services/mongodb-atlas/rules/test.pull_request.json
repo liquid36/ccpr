@@ -1,0 +1,17 @@
+{
+    "collection": "pull_request",
+    "database": "test",
+    "id": "5f4c1c122bfbd3d2a8c0d9da",
+    "roles": [
+        {
+            "name": "default",
+            "apply_when": {},
+            "write": true,
+            "insert": false,
+            "delete": false,
+            "search": true,
+            "additional_fields": {}
+        }
+    ],
+    "schema": {}
+}
