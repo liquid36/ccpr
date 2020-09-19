@@ -1,23 +1,21 @@
 import React from 'react';
 
 export function TestingBadge({ item }) {
-    const repos = ['app', 'api', 'andes-test-integracion'];
+    if (item.metadata.isDone) return null;
 
-    const hasTestingOK = repos.reduce((estado, repo) => {
-        return estado && (!item[repo] || item[repo].label && item[repo].label.includes('test ok'));
-    }, true);
-
-    const hasTestingFail = repos.reduce((estado, repo) => {
-        return estado || (item[repo] && item[repo].label && item[repo].label.includes('test fail'));
-    }, false);
-
-    if (hasTestingOK) {
+    if (item.metadata.ready) {
+        return (
+            <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-700 text-white">
+                READY
+            </span>
+        );
+    } else if (item.metadata.testOk) {
         return (
             <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-800 text-white">
                 TEST OK
             </span>
         );
-    } else if (hasTestingFail) {
+    } else if (item.metadata.testFail) {
         return (
             <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-800 text-white">
                 TEST FAIL
