@@ -61,7 +61,7 @@ export async function getPR() {
 
         metadata.ready = REPO_LIST.reduce((estado, repo) => {
             return estado && (!item[repo] || metadata.repoState[repo].ready);
-        }, true);
+        }, true)  && metadata.testOk;
 
         item.metadata = metadata;
         
