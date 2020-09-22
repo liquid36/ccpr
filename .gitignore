@@ -16,6 +16,7 @@
 *.launch
 .settings/
 *.sublime-workspace
+apps/backend/hosting/files/*
 
 # IDE - VSCode
 .vscode/*

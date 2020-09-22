@@ -55,7 +55,7 @@ export async function getPR() {
                 state,
                 approved: s.approved,
                 color,
-                ready: s.approved >= 2 && state === 'OPEN' && color === 'green'
+                ready: (s.approved >= 2 && state === 'OPEN' && color === 'green' ) || repo === 'andes-test-integracion'
             };
         });
 
