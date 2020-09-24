@@ -47,9 +47,10 @@ export async function getPR() {
             if (!item[repo]) return;
 
             const s = item[repo];
+            const changesRequested = s.label && s.label.includes('changes requested');
             const state = s.merged ? 'MERGED' : (s.closed ? 'CLOSE' : 'OPEN');
             const isSuccess = s.check !== 'fail';
-            const color = state === 'MERGED' ? 'purple' : (state === 'CLOSE' ? 'red' : (isSuccess ? 'green' : 'red'));
+            const color = state === 'MERGED' ? 'purple' : (state === 'CLOSE' ? 'red' : (isSuccess && !changesRequested  ? 'green' : 'red'));
 
             metadata.repoState[repo] = {
                 state,

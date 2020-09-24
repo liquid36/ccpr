@@ -30,10 +30,12 @@
   "private": true,
   "dependencies": {
     "bson": "^4.1.0",
+    "date-fns": "^2.16.1",
     "document-register-element": "1.13.1",
     "ejson": "^2.2.0",
     "mongodb": "^3.6.2",
     "node-fetch": "^2.6.1",
+    "popper.js": "^1.16.1",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^4.0.2",
     "postcss-scss": "^3.0.0",

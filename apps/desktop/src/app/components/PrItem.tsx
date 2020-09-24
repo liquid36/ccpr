@@ -1,3 +1,4 @@
+import { formatDistanceToNow, format } from 'date-fns'; 
 import React from 'react';
 import { DismissButton } from './DismissButton';
 import { EstadoRepositorio } from './EstadoRepositorio';
@@ -28,16 +29,18 @@ export function PrItem({ item, onDismiss }) {
 
             </td>
 
-            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                {item.updated_at.toLocaleDateString()}
+            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-600">
+                {  formatDistanceToNow(item.updated_at) }
+                {/* {item.updated_at.toLocaleDateString()}
                 <br />
-                {item.updated_at.getHours()}: {item.updated_at.getMinutes()}HS
+                {item.updated_at.getHours()}: {item.updated_at.getMinutes()}HS */}
             </td>
 
-            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                {item.created_at.toLocaleDateString()}
+            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-600">
+                { format(item.created_at, 'dd/MM') }
+                {/* {item.created_at.toLocaleDateString()}
                 <br />
-                {item.created_at.getHours()}: {item.created_at.getMinutes()}HS
+                {item.created_at.getHours()}: {item.created_at.getMinutes()}HS */}
             </td>
 
 
