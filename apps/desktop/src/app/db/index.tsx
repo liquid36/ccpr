@@ -1,4 +1,3 @@
-import { stat } from 'fs';
 import * as Realm from "realm-web"; 
 export const REPO_LIST = ['app', 'api', 'andes-test-integracion'];
 
@@ -23,10 +22,12 @@ function hasTag(item, label) {
     }, false);
 }
 
-export async function getPR() {
+export async function getPR(done = false) {
     const mongo = app.services.mongodb('mongodb-atlas');
     const mongoCollection = mongo.db("test").collection("pull_request");
-    const prs = await mongoCollection.find({ done: { $exists: false } });
+    const doneQuery = !done ? { $exists: false } : true;
+
+    const prs = await mongoCollection.find({ done: doneQuery });
 
     prs.forEach((item) => {
         const isDone = REPO_LIST.reduce((estado, repo) => {
@@ -40,7 +41,8 @@ export async function getPR() {
             testOk: allHasTag(item, 'test ok'),
             testFail: hasTag(item, 'test fail'),
             repoState: {},
-            ready: false
+            ready: false,
+            close: false
         };
 
         REPO_LIST.forEach(repo => {
@@ -63,8 +65,14 @@ export async function getPR() {
         metadata.ready = REPO_LIST.reduce((estado, repo) => {
             return estado && (!item[repo] || metadata.repoState[repo].ready);
         }, true)  && metadata.testOk;
+        
+        metadata.close = REPO_LIST.reduce((estado, repo) => {
+            return estado && (!item[repo] || metadata.repoState[repo].state === 'CLOSE');
+        }, true);
 
         item.metadata = metadata;
+
+        item.done_at = item.done_at || new Date(2020, 8, 11);
         
     });
 

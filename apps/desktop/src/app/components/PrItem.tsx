@@ -57,7 +57,7 @@ export function PrItem({ item, onDismiss }) {
 
             </td>
  
-            <td>
+            <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                 <TestingBadge item={item}></TestingBadge>
                 <ScriptBadge item={item}></ScriptBadge>
             </td>
